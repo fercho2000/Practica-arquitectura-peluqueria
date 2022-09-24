@@ -1,1 +1,5 @@
 rootProject.name = 'peluqueria'
+
+include ':aplicacion', 
+		':dominio', 
+		':infraestructura'
