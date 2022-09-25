@@ -1,5 +1,9 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
+plugins {
+    id 'org.springframework.boot' version '2.7.4'
+    id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+    id 'java'
+    id 'eclipse'
+}
 
 group = 'poli.peluqueria'
 version = '0.0.1-SNAPSHOT'
@@ -10,6 +14,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
     implementation project(':dominio')
 }
