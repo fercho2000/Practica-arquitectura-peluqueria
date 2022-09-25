@@ -9,7 +9,8 @@ import poli.peluqueria.servicio.ServicioAgenda;
 public class ServicioBean {
 
     RepositorioAgenda repositorioAgenda;
-
+    public ServicioBean() {
+    }
 
     @Bean
     public ServicioAgenda crearServicio(RepositorioAgenda repositorioAgenda) {
