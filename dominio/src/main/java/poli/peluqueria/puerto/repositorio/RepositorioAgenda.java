@@ -7,5 +7,5 @@ public interface RepositorioAgenda {
 
     void crear(Agenda agenda);
 
-
+    Agenda obtener(String cedulaCliente);
 }

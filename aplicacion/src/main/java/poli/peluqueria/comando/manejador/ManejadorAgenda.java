@@ -31,7 +31,10 @@ public class ManejadorAgenda {
                         comandoAgenda.getDescripcionServicio(),
                         comandoAgenda.getNombreEncargadoServicio())
         );
+    }
 
+    public Agenda obtener(String cedulaCliente){
+        return this.servicioAgenda.obtener(cedulaCliente);
     }
 
 }

@@ -14,9 +14,11 @@ public class ServicioAgenda {
     }
 
     public void ejecutar(Agenda agenda) {
-
         this.repositorioAgenda.crear(agenda);
+    }
 
+    public Agenda obtener(String cedulaCliente){
+        return this.repositorioAgenda.obtener(cedulaCliente);
     }
 
 }

@@ -26,4 +26,10 @@ public class RepositorioAgendaData implements RepositorioAgenda {
         }
     }
 
+    @Override
+    public Agenda obtener(String cedulaCliente) {
+        EntidadAgenda entidadAgenda = this.crudAgendaRepository.findByCedulaCliente(cedulaCliente);
+        return MaperAgenda.convertirAModelo(entidadAgenda);
+    }
+
 }

@@ -7,7 +7,7 @@ import poli.peluqueria.repositorio.entidades.EntidadAgenda;
 @Repository
 public interface CrudAgendaRepository extends CrudRepository<EntidadAgenda, Integer> {
 
-    EntidadAgenda findByCedulaCliente(String placa);
+    EntidadAgenda findByCedulaCliente(String cedulaCliente);
 
     Iterable<EntidadAgenda> findAll();
 

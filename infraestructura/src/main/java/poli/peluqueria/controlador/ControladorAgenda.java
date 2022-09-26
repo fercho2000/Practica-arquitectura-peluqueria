@@ -1,12 +1,10 @@
 package poli.peluqueria.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import poli.peluqueria.comando.manejador.ComandoAgenda;
 import poli.peluqueria.comando.manejador.ManejadorAgenda;
+import poli.peluqueria.modelo.Agenda;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -21,5 +19,10 @@ public class ControladorAgenda {
     @PostMapping("/registrarAgenda")
     public void crearHistorialParqueadero(@RequestBody ComandoAgenda comandoAgenda) {
         this.manejadorAgenda.ejecutar(comandoAgenda);
+    }
+
+    @GetMapping("/obtenerAgenda/{cedulaCliente}")
+    public Agenda obtenerAgenda(@PathVariable String cedulaCliente) {
+        return this.manejadorAgenda.obtener(cedulaCliente);
     }
 }
