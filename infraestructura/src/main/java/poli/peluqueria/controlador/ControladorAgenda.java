@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import poli.peluqueria.comando.manejador.ComandoAgenda;
 import poli.peluqueria.comando.manejador.ManejadorAgenda;
 import poli.peluqueria.modelo.Agenda;
+import poli.peluqueria.servicio.ServicioAgenda;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -25,4 +26,10 @@ public class ControladorAgenda {
     public Agenda obtenerAgenda(@PathVariable String cedulaCliente) {
         return this.manejadorAgenda.obtener(cedulaCliente);
     }
+
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable int id){
+        ServicioAgenda.delete(id);
+    }
+
 }

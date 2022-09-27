@@ -11,6 +11,4 @@ public interface CrudAgendaRepository extends CrudRepository<EntidadAgenda, Inte
 
     Iterable<EntidadAgenda> findAll();
 
-    void deleteById(Long id);
-
 }

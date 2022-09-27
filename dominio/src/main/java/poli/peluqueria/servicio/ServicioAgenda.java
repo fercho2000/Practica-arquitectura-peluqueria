@@ -3,14 +3,18 @@ package poli.peluqueria.servicio;
 import poli.peluqueria.modelo.Agenda;
 import poli.peluqueria.puerto.repositorio.RepositorioAgenda;
 
-public class ServicioAgenda {
 
+public class ServicioAgenda {
 
     private RepositorioAgenda repositorioAgenda;
 
     public ServicioAgenda(RepositorioAgenda repositorioAgenda) {
 
         this.repositorioAgenda = repositorioAgenda;
+    }
+
+    public static void delete(int id) {
+        RepositorioAgenda.delete(id);
     }
 
     public void ejecutar(Agenda agenda) {
@@ -20,5 +24,4 @@ public class ServicioAgenda {
     public Agenda obtener(String cedulaCliente){
         return this.repositorioAgenda.obtener(cedulaCliente);
     }
-
 }

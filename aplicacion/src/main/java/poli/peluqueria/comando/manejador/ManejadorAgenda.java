@@ -2,6 +2,7 @@ package poli.peluqueria.comando.manejador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 import poli.peluqueria.modelo.Agenda;
 import poli.peluqueria.servicio.ServicioAgenda;
 
@@ -36,5 +37,4 @@ public class ManejadorAgenda {
     public Agenda obtener(String cedulaCliente){
         return this.servicioAgenda.obtener(cedulaCliente);
     }
-
 }
