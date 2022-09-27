@@ -9,5 +9,7 @@ public interface RepositorioAgenda {
 
     Agenda obtener(String cedulaCliente);
 
-    void delete(int id);
+    void delete(String cedulaCliente);
+
+    Agenda actualizar(String cedulaCliente, Agenda agenda);
 }

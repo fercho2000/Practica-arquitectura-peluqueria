@@ -18,7 +18,7 @@ public class ControladorAgenda {
         this.manejadorAgenda = manejadorAgenda;
     }
     @PostMapping("/registrarAgenda")
-    public void crearHistorialParqueadero(@RequestBody ComandoAgenda comandoAgenda) {
+    public void crearAgenda(@RequestBody ComandoAgenda comandoAgenda) {
         this.manejadorAgenda.ejecutar(comandoAgenda);
     }
 
@@ -27,9 +27,14 @@ public class ControladorAgenda {
         return this.manejadorAgenda.obtener(cedulaCliente);
     }
 
-    @DeleteMapping("/{id}")
-    void delete(@PathVariable int id){
-        ServicioAgenda.delete(id);
+    @PutMapping("/Agenda/{cedulaCliente}")
+    public Agenda actualizarAgenda(@PathVariable String cedulaCliente, @RequestBody ComandoAgenda comandoAgenda) {
+        return this.manejadorAgenda.actualizar(cedulaCliente,comandoAgenda);
+    }
+
+    @DeleteMapping("/Agenda/{cedulaCliente}")
+    public void delete(@PathVariable String cedulaCliente){
+        this.manejadorAgenda.eliminar(cedulaCliente);
     }
 
 }

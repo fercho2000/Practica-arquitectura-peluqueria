@@ -34,7 +34,20 @@ public class ManejadorAgenda {
         );
     }
 
+    public Agenda actualizar(String cedulaCliente, ComandoAgenda comandoAgenda) {
+
+       return this.servicioAgenda.actualizar(cedulaCliente,
+                new Agenda(comandoAgenda.getCedulaCliente(),
+                        comandoAgenda.getNombreCompletoCliente(),
+                        LocalDateTime.parse(comandoAgenda.getFecha()),
+                        comandoAgenda.getDescripcionServicio(),
+                        comandoAgenda.getNombreEncargadoServicio())
+        );
+    }
+
     public Agenda obtener(String cedulaCliente){
         return this.servicioAgenda.obtener(cedulaCliente);
     }
+
+    public void eliminar(String cedulaCliente){ this.servicioAgenda.eliminar(cedulaCliente); }
 }

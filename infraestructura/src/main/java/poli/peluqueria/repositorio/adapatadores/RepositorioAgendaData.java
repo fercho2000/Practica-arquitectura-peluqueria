@@ -39,8 +39,26 @@ public class RepositorioAgendaData implements RepositorioAgenda {
     }
 
     @Override
-    public void delete(int id) {
-        EntidadAgenda entidadAgenda = get(id);
-        entityManager.remove(entidadAgenda);
+    public void delete(String cedulaCliente) {
+        EntidadAgenda entidadAgenda = this.crudAgendaRepository
+                .findByCedulaCliente(cedulaCliente);
+        if (entidadAgenda != null) {
+            this.crudAgendaRepository.delete(entidadAgenda);
+        }
+    }
+
+    @Override
+    public Agenda actualizar(String cedulaCliente, Agenda agenda) {
+        EntidadAgenda entidadAgenda = this.crudAgendaRepository.findByCedulaCliente(cedulaCliente);
+        if (entidadAgenda != null){
+            entidadAgenda.setCedulaCliente(agenda.getCedulaCliente());
+            entidadAgenda.setFecha(agenda.getFecha());
+            entidadAgenda.setDescripcionServicio(agenda.getDescripcionServicio());
+            entidadAgenda.setNombreCompletoCliente(agenda.getNombreCompletoCliente());
+            entidadAgenda.setNombreEncargadoServicio(agenda.getNombreEncargadoServicio());
+            this.crudAgendaRepository.save(entidadAgenda);
+        }
+
+        return MaperAgenda.convertirAModelo(entidadAgenda);
     }
 }

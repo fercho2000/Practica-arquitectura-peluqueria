@@ -13,14 +13,17 @@ public class ServicioAgenda {
         this.repositorioAgenda = repositorioAgenda;
     }
 
-    public static void delete(int id) {
-        RepositorioAgenda.delete(id);
+    public void eliminar(String cedulaCliente) {
+        this.repositorioAgenda.delete(cedulaCliente);
     }
 
     public void ejecutar(Agenda agenda) {
         this.repositorioAgenda.crear(agenda);
     }
 
+    public Agenda actualizar(String cedulaCliente, Agenda agenda) {
+       return this.repositorioAgenda.actualizar(cedulaCliente, agenda);
+    }
     public Agenda obtener(String cedulaCliente){
         return this.repositorioAgenda.obtener(cedulaCliente);
     }
